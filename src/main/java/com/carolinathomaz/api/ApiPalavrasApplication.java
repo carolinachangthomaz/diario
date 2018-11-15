@@ -24,17 +24,17 @@ public class ApiPalavrasApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-		
-          Diario diario = new Diario(null, "palavra 1", "teste", sdf.parse("15/11/2018"));
-           
-          diario = diarioService.insert(diario);
-          
-          System.out.println(diario.toString());
-          
-          Diario dia = diarioService.findById("palavra 1");
-          
-          System.out.println(dia.getPalavra());
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+//		
+//          Diario diario = new Diario(null, "palavra 1", "teste", sdf.parse("15/11/2018"));
+//           
+//          diario = diarioService.insert(diario);
+//          
+//          System.out.println(diario.toString());
+//          
+//          Diario dia = diarioService.findById("palavra 1");
+//          
+//          System.out.println(dia.getPalavra());
 	}
 }
