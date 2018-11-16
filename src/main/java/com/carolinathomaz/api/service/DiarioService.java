@@ -1,5 +1,6 @@
 package com.carolinathomaz.api.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,12 +18,12 @@ public class DiarioService {
 	
 	public Diario insert(Diario diario) {
 		diario.setId(null);
+		diario.setDate(new Date());
 		return diarioRepository.insert(diario);
 	}
 	
 	public Diario update(Diario diario) {
 		Diario d = findById(diario.getId());
-		d.setDate(diario.getDate());
 		d.setPalavra(diario.getPalavra());
 		d.setObs(diario.getObs());
 		return diarioRepository.save(d);

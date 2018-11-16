@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.carolinathomaz</groupId>
-	<artifactId>api-palavras</artifactId>
+	<artifactId>api-diario</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>api-palavras</name>
+	<name>api-diario</name>
 	<description>API - PALAVRAS</description>
 
 	<parent>
