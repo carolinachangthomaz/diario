@@ -1,7 +1,9 @@
 package com.carolinathomaz.api.resource;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.carolinathomaz.api.domain.Diario;
+import com.carolinathomaz.api.dto.DiarioDto;
 import com.carolinathomaz.api.service.DiarioService;
 
 @CrossOrigin("*")
@@ -26,9 +29,11 @@ public class DiarioResource {
 	private DiarioService diarioService;
 
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<Diario>>  findAll(){
+	public ResponseEntity<List<DiarioDto>>  findAll(){
 		List<Diario> list = diarioService.findAll();
-		return ResponseEntity.ok().body(list);
+		List<DiarioDto> listDto = list.stream().map(cat -> new DiarioDto(cat)).collect(Collectors.toList());
+		
+		return ResponseEntity.ok().body(listDto);
 	}
 	
 	@RequestMapping(value="/{id}" ,method=RequestMethod.GET)
