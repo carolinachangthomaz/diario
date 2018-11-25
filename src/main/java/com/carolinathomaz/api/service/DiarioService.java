@@ -1,6 +1,6 @@
 package com.carolinathomaz.api.service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +18,7 @@ public class DiarioService {
 	
 	public Diario insert(Diario diario) {
 		diario.setId(null);
-		diario.setDate(new Date());
+		diario.setDate(LocalDate.now());
 		return diarioRepository.insert(diario);
 	}
 	
@@ -37,6 +37,11 @@ public class DiarioService {
 
 	public List<Diario> findAll() {
 		return diarioRepository.findAll();
+		
+	}
+	
+	public void deleteAll() {
+		this.diarioRepository.deleteAll();
 		
 	}
 

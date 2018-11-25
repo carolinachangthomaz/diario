@@ -1,6 +1,7 @@
 package com.carolinathomaz.api.dto;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 
 import com.carolinathomaz.api.domain.Diario;
 
@@ -19,7 +20,9 @@ public class DiarioDto {
 		this.id = diario.getId();
 		this.palavra = diario.getPalavra();
 		this.obs = diario.getObs();
-		this.date = new SimpleDateFormat("dd/MM/yyyy").format(diario.getDate());
+		DateTimeFormatter formatters = DateTimeFormatter.ofPattern("d/MM/uuuu");
+		String dateFormat = diario.getDate().format(formatters);
+		this.date = dateFormat;
 	}
 
 	public String getId() {

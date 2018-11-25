@@ -1,6 +1,7 @@
 package com.carolinathomaz.api.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
@@ -14,13 +15,13 @@ public class Diario implements Serializable{
      private String id;
      private String palavra;
      private String obs;
-     private Date date;
+     private LocalDate date;
      
      
 	public Diario() {
 	}
 
-	public Diario(String id, String palavra, String obs, Date date) {
+	public Diario(String id, String palavra, String obs, LocalDate date) {
 		this.id = id;
 		this.palavra = palavra;
 		this.obs = obs;
@@ -46,11 +47,11 @@ public class Diario implements Serializable{
 		this.obs = obs;
 	}
 	
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
