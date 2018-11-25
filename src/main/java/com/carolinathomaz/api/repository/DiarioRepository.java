@@ -1,5 +1,6 @@
 package com.carolinathomaz.api.repository;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -11,5 +12,7 @@ import com.carolinathomaz.api.domain.Diario;
 public interface DiarioRepository extends MongoRepository<Diario, String>{
 
 	Optional<Diario> findByPalavraIgnoreCaseContaining(String palavra);
+
+	Diario findByDate(LocalDate ontem);
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.carolinathomaz.api.domain.Diario;
 import com.carolinathomaz.api.repository.DiarioRepository;
+import com.carolinathomaz.api.util.DateUtil;
 
 @Service
 public class DiarioService {
@@ -18,8 +19,16 @@ public class DiarioService {
 	
 	public Diario insert(Diario diario) {
 		diario.setId(null);
-		diario.setDate(LocalDate.now());
-		return diarioRepository.insert(diario);
+		diario.setDate(DateUtil.getHoje());
+		
+		Diario ontem = findByOntem(DateUtil.getOntem());
+				
+		if(((DateUtil.isDiaSeguinte()  && ontem != null ) || (DateUtil.isOntemDomingo())) || findAll().isEmpty()) {
+			diario = diarioRepository.insert(diario);
+		}else {
+			this.deleteAll();
+		}
+		return diario;
 	}
 	
 	public Diario update(Diario diario) {
@@ -37,6 +46,11 @@ public class DiarioService {
 
 	public List<Diario> findAll() {
 		return diarioRepository.findAll();
+		
+	}
+	
+	public Diario findByOntem(LocalDate ontem) {
+		return diarioRepository.findByDate(ontem);
 		
 	}
 	

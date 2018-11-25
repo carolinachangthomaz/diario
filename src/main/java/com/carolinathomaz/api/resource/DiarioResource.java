@@ -1,7 +1,6 @@
 package com.carolinathomaz.api.resource;
 
 import java.net.URI;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,10 +42,10 @@ public class DiarioResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void>  insert(@RequestBody Diario diario){
-		Diario newuser = diarioService.insert(diario);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newuser.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+	public ResponseEntity<Diario>  insert(@RequestBody Diario diario){
+		Diario diarionew = diarioService.insert(diario);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(diarionew.getId()).toUri();
+		return ResponseEntity.created(uri).body(diarionew);
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT)
