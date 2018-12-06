@@ -20,7 +20,7 @@ public class DiarioDto {
 		this.id = diario.getId();
 		this.palavra = diario.getPalavra();
 		this.obs = diario.getObs();
-		DateTimeFormatter formatters = DateTimeFormatter.ofPattern("d/MM/uuuu");
+		DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/uuuu");
 		String dateFormat = diario.getDate().format(formatters);
 		this.date = dateFormat;
 	}
