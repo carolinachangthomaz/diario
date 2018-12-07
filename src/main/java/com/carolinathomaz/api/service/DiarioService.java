@@ -27,6 +27,7 @@ public class DiarioService {
 			diario = diarioRepository.insert(diario);
 		}else {
 			this.deleteAll();
+			diario = diarioRepository.insert(diario);
 		}
 		return diario;
 	}
@@ -45,7 +46,7 @@ public class DiarioService {
 	}
 
 	public List<Diario> findAll() {
-		return diarioRepository.findAll();
+		return diarioRepository.findAllByOrderByDateDesc();
 		
 	}
 	
