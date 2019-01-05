@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DateUtil {
 
-	static DateTimeFormatter formatters = DateTimeFormatter.ofPattern("d/MM/uuuu");
+	static DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
 	//public static  LocalDate date = LocalDate.of(2018, 11, 25);
 	
