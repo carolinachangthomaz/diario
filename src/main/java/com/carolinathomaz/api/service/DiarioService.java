@@ -26,7 +26,7 @@ public class DiarioService {
 		if(((DateUtil.isDiaSeguinte()  && ontem != null ) || (DateUtil.isOntemDomingo())) || findAll().isEmpty()) {
 			diario = diarioRepository.insert(diario);
 		}else {
-			//this.deleteAll();
+			this.deleteAll();
 			diario = diarioRepository.insert(diario);
 		}
 		return diario;
